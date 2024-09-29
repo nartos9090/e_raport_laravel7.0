@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class checkAksesGuru
+class CheckKurikulum
 {
     /**
      * Handle an incoming request.
@@ -13,9 +13,9 @@ class checkAksesGuru
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $akses_sebagai)
+    public function handle($request, Closure $next, $kurikulum)
     {
-        if (session('akses_sebagai') ==  $akses_sebagai) {
+        if (session('kurikulum') ==  $kurikulum) {
             return $next($request);
         }
         return redirect('/unauthorized');
